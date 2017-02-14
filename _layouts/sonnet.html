@@ -1,0 +1,36 @@
+---
+layout: poem
+author: William Shakespere
+source: http://poetry.eserver.org/sonnets/
+wikipedia_entry: https://en.wikipedia.org/wiki/William_Shakespeare
+---
+
+<p class="citation"> by <a href="{{ layout.wikipedia_entry }}"> {{ layout.author }}</a></p>
+{{content}}
+
+<hr>
+
+{% if page.ss_id == 150 %}
+{% assign next_sonnet = '' %}
+{% else %}
+{% assign next_sonnet = page.ss_id | plus: 1 %}
+{% endif %}
+{% if page.ss_id == 1 %}
+  {% assign previous_sonnet = '' %}
+{% else %}
+  {% assign previous_sonnet = page.ss_id | plus: -1 %}
+{% endif %}
+
+
+
+{% if previous_sonnet != '' %}
+<a style="float:left" href="/sonnets/texts/{{previous_sonnet}}">Previous Sonnet </a>
+{% endif %}
+<a style="float:right" href="/sonnets/texts/{{next_sonnet}}">Next Sonnet </a>
+
+<br/>
+<hr>
+<p> More about this Sonnet on the excellent
+    <a href="http://www.shakespeares-sonnets.com/sonnet/{{page.ss_id }}"> Shakespeare's Sonnets</a>
+</p>
+
